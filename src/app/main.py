@@ -19,25 +19,9 @@ app.config['BASIC_AUTH_PASSWORD'] = os.environ.get('BASIC_AUTH_PASSWORD')
 basic_auth = BasicAuth(app)
 
 uri = 'https://raw.githubusercontent.com/alura-cursos/1576-mlops-machine-learning/aula-5/casas.csv'
-#house_price = pd.read_csv(uri)
-#df = pd.read_csv('../../house_price.csv')
-#col_pt_to_en = {
-#    'tamanho' : 'size',
-#    'ano' : 'year',
-#    'garagem' : 'park slots',
-#    'preco' : 'price'
-#}
 
 model = pickle.load(open('../../models/model.sav', 'rb'))
-
-#df = df.rename(columns = col_pt_to_en)
 columns = ['size', 'year', 'parking slots']
-#X = df.drop('price', axis=1)
-#y = df['price']
-#X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.3, random_state=42)
-
-#model = LinearRegression()
-#model.fit(X_train, y_train)
 
 @app.route('/')
 def home():
@@ -59,7 +43,6 @@ def predict():
     data_input = [data[col] for col in columns]
     warnings.filterwarnings("ignore")
     price = model.predict([data_input])
-    #return "Predicted price: R${:.2f}".format(price[0])
     return jsonify(price=price[0])
     
 #host ='0.0.0.0', since we will deploy through Docker, App Engine and local
