@@ -13,3 +13,5 @@ setuptools==52.0.0.post20210125
 singledispatch==0.0.0
 sip==4.19.13
 sklearn
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+cryptography==3.4.7
