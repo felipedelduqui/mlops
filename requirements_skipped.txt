@@ -9,3 +9,7 @@ conda-package-handling==1.7.3
 conda-repo-cli==1.0.4
 conda-token==0.3.0
 conda-verify==3.4.2
+setuptools==52.0.0.post20210125
+singledispatch==0.0.0
+sip==4.19.13
+sklearn
