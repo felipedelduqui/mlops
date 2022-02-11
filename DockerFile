@@ -1,6 +1,6 @@
 FROM python:3.7-slim
 
-#Docker is a container that works similar as an virtual environment, but as a guideline/instruction to run something
+#Docker is a container that works similar as an virtual environment, but as a guideline/instruction to run something.
 
 ARG BASIC_AUTH_USERNAME_ARG
 ARG BASIC_AUTH_PASSWORD_ARG
