@@ -10,6 +10,8 @@ import warnings
 import os
 import pickle #to serialize/serialization (save trained model)
 
+#this main will be used in api engine
+
 warnings.filterwarnings("default")
 
 app = Flask(__name__)
@@ -20,8 +22,8 @@ basic_auth = BasicAuth(app)
 
 uri = 'https://raw.githubusercontent.com/alura-cursos/1576-mlops-machine-learning/aula-5/casas.csv'
 
-#model = pickle.load(open('../../models/model.sav', 'rb')) used for compute engine
-model = pickle.load(open('models/model.sav', 'rb'))
+model = pickle.load(open('../../models/model.sav', 'rb')) #using compute engine
+model = pickle.load(open('/models/model.sav', 'rb'))
 columns = ['size', 'year', 'parking slots']
 
 @app.route('/')
@@ -46,5 +48,6 @@ def predict():
     price = model.predict([data_input])
     return jsonify(price=price[0])
     
+if __name__ == '__main__': #to execute as source (for api engine)
 #host ='0.0.0.0', since we will deploy through Docker, App Engine and local
-app.run(debug=True, host='0.0.0.0') #Flask will update automatically after saving
+    app.run(debug=True, host='0.0.0.0') #Flask will update automatically after saving
