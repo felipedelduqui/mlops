@@ -1,7 +1,7 @@
 mlops-deploy
 ==============================
 
-mlops study
+<p><small>Project used to practice my mlops skills, envolving API, Postman and deploy</small></p>
 
 Project Organization
 ------------
